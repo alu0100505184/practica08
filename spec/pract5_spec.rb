@@ -23,6 +23,9 @@ module Pract05
 	it "Deben imprimirse la pregunta" do
 	  @p1.imprimir_pregunta
 	end
+	it "Deben imprimirse la pregunta" do
+	  @p1.to_s.should == "Seleccione cuanto vale. 2 + 4\n6\n7\n2\n3\n"
+	end
       end  
     end
   end
