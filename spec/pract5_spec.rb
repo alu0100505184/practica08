@@ -33,14 +33,14 @@ module Pract05
   
   describe "Examen" do
     before :each do
-      @q = Pract05::Pregunta.new("Seleccione cuanto vale. 2 + 4",6, [7,2,3])
-      @n = Pract05::Nodo.new(@q, nil)
-      @lista = Pract05::ListaEnlazada.new(@n)
+      @q = Pregunta.new("Seleccione cuanto vale. 2 + 4",6, [7,2,3])
+      @n = Nodo.new(@q, nil)
+      @lista = Pract05::ListaEnlazada.new(@q)
     end
     
     context "Test de clase Nodo" do
       it 'Comprobando la clase nodo' do
-	expect(Pract05::Nodo).to respond_to(:new)
+	expect(Nodo).to respond_to(:new)
 	expect(@n).to respond_to(:value)
 	expect(@n).to respond_to(:next)
       end
@@ -60,6 +60,22 @@ module Pract05
 
       it 'Valores de la clase ListaEnlazada' do
 	expect(@lista.top).to eq(@n)
+      end
+      
+      it 'Insertar otro elemento' do
+	puts ("1º elemento")
+	puts (@n2.value.to_s)
+	puts ("Tamaño")
+	puts (@lista.size.to_s)
+	
+	@q2 = Pregunta.new("AAAAAASeleccione cuanto vale. 2 + 4",6, [7,2,3])
+	@n2 = Nodo.new(@q2, nil)
+	@lista.push(@n2)
+	@n2 = @lista.pop()
+	puts ("2º elemento")
+	puts (@n2.value.to_s)
+	puts ("Tamaño")
+	puts (@lista.size.to_s)
       end
     end
   end
