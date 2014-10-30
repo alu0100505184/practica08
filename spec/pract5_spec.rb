@@ -34,7 +34,7 @@ module Pract05
   describe "Examen" do
     before :each do
       @q = Pregunta.new("Seleccione cuanto vale. 2 + 4",6, [7,2,3])
-      @n = Nodo.new(@q, nil)
+      #@n = Nodo.new(@q, nil)
       @lista = Pract05::ListaEnlazada.new(@q)
     end
     

@@ -33,6 +33,6 @@ module Pract05
 	 options += "#{respuesta}\n"
 	end
 	return options
-      end
+    end
   end
 end

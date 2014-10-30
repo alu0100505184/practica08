@@ -19,7 +19,8 @@ module Pract05
 	end
     
    
-=begin def push (newNode, *args)
+=begin
+	def push (newNode, *args)
       raise ArgumentError, "Los elementos tienen que ser del mismo tipo que top" unless newNode.is_a? @top.class
       @tail.next = newNode
       @tail = newNode
@@ -34,11 +35,22 @@ module Pract05
       @tail.ant.next = @tail
       return true
     end
-
+    
+    def push_array(array)
+      (0..array.length).each do |i|
+      aux = Nodo.new(array[i],nil)
+      @tail = aux
+      @tail.ant.next = @tail
+      end
+      return true
+    end
+    
     def pop
-	aux = @head.value
-	@head = @head.next
-	@head.next = nil
+	aux = @top.value
+	@top = @top.next
+	if (@top != nil) then
+	  @top.ant = nil
+	end
 	return aux
       end
   end

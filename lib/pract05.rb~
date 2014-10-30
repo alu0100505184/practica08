@@ -35,5 +35,4 @@ module Pract05
 	return options
       end
   end
-  end
 end
