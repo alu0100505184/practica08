@@ -29,4 +29,38 @@ module Pract05
       end  
     end
   end
+  
+  
+  describe "Examen" do
+    before :each do
+      @q = Pract05::Pregunta.new("Seleccione cuanto vale. 2 + 4",6, [7,2,3])
+      @n = Pract05::Nodo.new(@q, nil)
+      @lista = Pract05::ListaEnlazada.new(@n)
+    end
+    
+    context "Test de clase Nodo" do
+      it 'Comprobando la clase nodo' do
+	expect(Pract05::Nodo).to respond_to(:new)
+	expect(@n).to respond_to(:value)
+	expect(@n).to respond_to(:next)
+      end
+      
+      it 'Valores de la clase nodo' do
+	expect(@n.value).to eq(@q)
+	expect(@n.next).to eq(nil)
+      end
+    end
+    
+    context "Test de clase ListaEnlazada" do
+      it 'Comprobando la clase ListaEnlazada' do
+	expect(Pract05::ListaEnlazada).to respond_to(:new)
+	expect(@lista).to respond_to(:top)
+	
+      end
+
+      it 'Valores de la clase ListaEnlazada' do
+	expect(@lista.top).to eq(@n)
+      end
+    end
+  end
 end
