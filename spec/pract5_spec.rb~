@@ -79,4 +79,15 @@ module Pract05
       end
     end
   end
+  
+  describe "Test" do
+    before :each do
+      @q1 = Pract05::Pregunta.new("¿Cuál es la salida del siguiente código de Ruby? \nclass Xyz\n  def pots\n    @nice\n  end\nend\n\nxyz = Xyz.new\np xyz.pots\n","nil",["#<Xyz:0xa000208"]) 
+      @q3 = Pract05::Pregunta.new("La siguiente definición de un hash en Ruby es válida: \nhash_raro = {\n  [1, 2, 3] => Object.new(),\n  hash.new => :toto\n}", "Cierto", "Falso");
+      @q4 = Pract05::Pregunta.new('Cuál es la salida del siguiente código Ruby?\nclass Array\n  def say_hi\n    "HEY!"\n  end\nend\n\np [1, "bob"].say_hi', "HEY!", ["1", "bob", "Ninguna de las anteriores"]);
+      @q5 = Pract05::Pregunta.new("¿Cuál es el tipo del objeto en el siguiente código en Ruby?\nclass Objeto\nend", "Ninguna de las anteriores", ["Una instancia de la clase", "Una constante", "Un objeto"]);
+      @q6 = Pract05::Pregunta.new("Es apropiado que una clase Tablero herede de una clase Juego", "Cierto", "Falso");
+    end
+  end
+  
 end
