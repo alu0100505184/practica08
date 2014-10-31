@@ -12,7 +12,6 @@ module Pract05
 	  @p1.texto.should == "Seleccione cuanto vale. 2 + 4"
 	  @p1.correcta.should == 6
 	  @p1.distraccion.should == [7,2,3]
-	  #@p1.texto.should eq("2+2")
 	end
 	it "tenemos una respuesta correcta" do
 	  expect(@p1.correcta).should == 6
@@ -35,7 +34,7 @@ module Pract05
     before :each do
       @q = Pregunta.new("Seleccione cuanto vale. 2 + 4",6, [7,2,3])
       @n = Nodo.new(@q, nil)
-      @lista = Pract05::ListaEnlazada.new([3,5])
+      @lista = Pract05::ListaEnlazada.new(@n)
     end
     
     context "Test de clase Nodo" do
@@ -52,7 +51,7 @@ module Pract05
     
     context "Test de clase ListaEnlazada" do
     before :each do
-      @lista = ListaEnlazada.new([2,1,9])
+      @lista = ListaEnlazada.new(@n)
     end
       it 'Comprobando la clase ListaEnlazada' do
 	expect(Pract05::ListaEnlazada).to respond_to(:new)
@@ -60,8 +59,9 @@ module Pract05
       end
       
       it 'Extraer elementos de la lista' do
-	@lista.pop.should eq(2)
-	@lista.pop.should eq(1)
+	@n1 = Nodo.new(2, nil)
+	@lista1 = Pract05::ListaEnlazada.new(@n1)
+	@lista1.pop.should eq(2)
       end
       
       it 'Comprobación de extracción cuando la lista está vacía' do
@@ -76,7 +76,8 @@ module Pract05
       end
       
       it 'Comprobando la clase ListaEnlazada. Insertando elemento' do
-	@lista.push(8).should eq(true)
+	@n1 = Nodo.new(2, nil)
+	@lista.push(@n).should eq(true)
       end
       
       it "Inserción de varios elementos" do
@@ -84,7 +85,9 @@ module Pract05
       end
       
       it "Consulta de cabeza " do
-	@lista.top.value.should eq(2)
+	@n1 = Nodo.new(2, nil)
+	@lista1 = Pract05::ListaEnlazada.new(@n1)
+	@lista1.top.value.should eq(2)
       end 
       
     end

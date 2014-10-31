@@ -1,6 +1,6 @@
 require "pract05/version"
-require "Nodo"
-require "ListaEnlazada"
+require "pract05/Nodo"
+require "pract05/ListaEnlazada"
 
 module Pract05
   # Your code goes here...

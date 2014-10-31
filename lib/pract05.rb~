@@ -1,6 +1,5 @@
 require "pract05/version"
-require "Nodo"
-require "ListaEnlazada"
+require "pract05"
 
 module Pract05
   # Your code goes here...
@@ -14,7 +13,7 @@ module Pract05
     
     #Preguntas con respuestas aleatorias
     def imprimir_pregunta()
-	puts "\nPregunta de examen"
+	puts "Pregunta de examen"
         puts @texto
 	options = [@correcta] + @distraccion
 	options = options.shuffle

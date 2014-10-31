@@ -8,21 +8,6 @@ module Pract05
 	    @top = nodo
 	    @tail = @top
     end
-
-=begin
-     def push(value)
-      if value.is_a? Array then
-	(0..value.length).each do |i|
-	  @tail.next = Nodo.new(value[i],nil)
-	  @tail =  @tail.next
-	end
-      else
-	@tail.next = Nodo.new(value,nil)
-	@tail =  @tail.next
-      end
-      return true
-    end
-=end
     
     def push(value)
       if value.is_a? Array then
