@@ -6,50 +6,34 @@ module Pract05
     
     def initialize (nodes)
 		@top = Nodo.new(nodes[0],nil)
-		aux = Nodo.new(nodes[1],nil)
-		@tail = aux
+		@tail = Nodo.new(nodes[1],nil)
 		@top.next = @tail
 	        if (nodes.length >= 2)
 		  (0..nodes.length-1).each do |i|
-		    aux.next = Nodo.new(nodes[i],nil)
-		    @tail = aux.next
-		    puts @tail.value
+		    @tail.next = Nodo.new(nodes[i],nil)
+		    @tail = @tail.next
 		  end
 		end
 	end
     
-   
-=begin
-	def push (newNode, *args)
-      raise ArgumentError, "Los elementos tienen que ser del mismo tipo que top" unless newNode.is_a? @top.class
-      @tail.next = newNode
-      @tail = newNode
-      @size += 1
-      args.each {|x| push(x)}
-    end
-=end
-    
-    def push (value)
-      aux = Nodo.new(value,nil)
-      @tail = aux
-      @tail.ant.next = @tail
-      return true
-    end
-    
-    def push_array(array)
-      (0..array.length).each do |i|
-      aux = Nodo.new(array[i],nil)
-      @tail = aux
-      @tail.ant.next = @tail
+    def push(value)
+      if value.is_a? Array then
+	(0..value.length).each do |i|
+	  @tail.next = Nodo.new(value[i],nil)
+	  @tail =  @tail.next
+	end
+      else
+	@tail.next = Nodo.new(value,nil)
+	@tail =  @tail.next
       end
       return true
     end
     
     def pop
 	aux = @top.value
-	@top = @top.next
-	if (@top != nil)
-	  @top.ant = nil
+	if (@top.next != nil) then
+	  @top = @top.next
+	end
 	return aux
       end
   end

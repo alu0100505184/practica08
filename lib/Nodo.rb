@@ -2,9 +2,9 @@ require "pract05/version"
 
 module Pract05
   Nodo = Struct.new(:value, :next) do
-	attr_accessor :value, :next
+	attr_accessor :value, :nextv
 	def initialize(value, nextt)
-         @value, @next, @ant=value, nextt, nil
+         @value, @next=value, nextt
     end
   end
 end

@@ -35,12 +35,11 @@ module Pract05
     before :each do
       @q = Pregunta.new("Seleccione cuanto vale. 2 + 4",6, [7,2,3])
       @n = Nodo.new(@q, nil)
-      @lista = Pract05::ListaEnlazada.new((2,2))
+      @lista = Pract05::ListaEnlazada.new([3,5])
     end
     
     context "Test de clase Nodo" do
       it 'Comprobando la clase nodo' do
-	expect(Nodo).to respond_to(:new)
 	expect(@n).to respond_to(:value)
 	expect(@n).to respond_to(:next)
       end
@@ -52,42 +51,186 @@ module Pract05
     end
     
     context "Test de clase ListaEnlazada" do
+    before :each do
+      @lista = ListaEnlazada.new([2,1,9])
+    end
       it 'Comprobando la clase ListaEnlazada' do
 	expect(Pract05::ListaEnlazada).to respond_to(:new)
 	expect(@lista).to respond_to(:top)
-	
-      end
-
-      it 'Valores de la clase ListaEnlazada' do
-	expect(@lista.top).to eq(@n)
       end
       
-      it 'Insertar otro elemento' do
-	puts ("1º elemento")
-	puts (@n2.value.to_s)
-	puts ("Tamaño")
-	puts (@lista.size.to_s)
-	
-	@q2 = Pregunta.new("AAAAAASeleccione cuanto vale. 2 + 4",6, [7,2,3])
-	@n2 = Nodo.new(@q2, nil)
-	@lista.push(@n2)
-	@n2 = @lista.pop()
-	puts ("2º elemento")
-	puts (@n2.value.to_s)
-	puts ("Tamaño")
-	puts (@lista.size.to_s)
+      it 'Extraer elementos de la lista' do
+	@lista.pop.should eq(2)
+	@lista.pop.should eq(1)
       end
+      
+      it 'Comprobación de extracción cuando la lista está vacía' do
+	@lista.pop
+	@lista.pop
+	@lista.pop
+	@lista.pop
+	@lista.pop
+	@lista.pop
+	@lista.pop
+	@lista.pop
+	
+      end
+      
+      it 'Comprobando la clase ListaEnlazada. Insertando elemento' do
+	@lista.push(8).should eq(true)
+      end
+      
+      it "Inserción de varios elementos" do
+	@lista.push([1,2,3]).should eq(true)
+      end
+      
+      it "Consulta de cabeza " do
+	@lista.top.value.should eq(2)
+      end 
+      
     end
   end
   
-  describe "Test" do
-    before :each do
-      @q1 = Pract05::Pregunta.new("¿Cuál es la salida del siguiente código de Ruby? \nclass Xyz\n  def pots\n    @nice\n  end\nend\n\nxyz = Xyz.new\np xyz.pots\n","nil",["#<Xyz:0xa000208"]) 
-      @q3 = Pract05::Pregunta.new("La siguiente definición de un hash en Ruby es válida: \nhash_raro = {\n  [1, 2, 3] => Object.new(),\n  hash.new => :toto\n}", "Cierto", "Falso");
-      @q4 = Pract05::Pregunta.new('Cuál es la salida del siguiente código Ruby?\nclass Array\n  def say_hi\n    "HEY!"\n  end\nend\n\np [1, "bob"].say_hi', "HEY!", ["1", "bob", "Ninguna de las anteriores"]);
-      @q5 = Pract05::Pregunta.new("¿Cuál es el tipo del objeto en el siguiente código en Ruby?\nclass Objeto\nend", "Ninguna de las anteriores", ["Una instancia de la clase", "Una constante", "Un objeto"]);
-      @q6 = Pract05::Pregunta.new("Es apropiado que una clase Tablero herede de una clase Juego", "Cierto", "Falso");
+  describe "Preguntas de examen" do
+    context "Test de preguntas de examen" do
+      before :each do
+	@p1 = Pract05::Pregunta.new("¿Cuál es la salida del siguiente código de Ruby? \nclass Xyz\n  def pots\n    @nice\n  end\nend\n\nxyz = Xyz.new\np xyz.pots\n","nil",["#<Xyz:0xa000208","0","Ninguna de las anteriores"]) 
+	@p2 = Pract05::Pregunta.new("La siguiente definición de un hash en Ruby es válida: \nhash_raro = {\n  [1, 2, 3] => Object.new(),\n  hash.new => :toto\n}", "Cierto", ["Falso"]);
+	@p3 = Pract05::Pregunta.new('Cuál es la salida del siguiente código Ruby?\nclass Array\n  def say_hi\n    "HEY!"\n  end\nend\n\np [1, "bob"].say_hi', "HEY!", ["1", "bob", "Ninguna de las anteriores"]);
+	@p4 = Pract05::Pregunta.new("¿Cuál es el tipo del objeto en el siguiente código en Ruby?\nclass Objeto\nend", "Ninguna de las anteriores", ["Una instancia de la clase", "Una constante", "Un objeto"]);
+	@p5 = Pract05::Pregunta.new("Es apropiado que una clase Tablero herede de una clase Juego", "Cierto", ["Falso"]);
+      end
+      
+      #Primera pregunta
+      describe "#Mostrar Pregunta 1" do
+	it "Se muestra la pregunta correctamente" do
+	  puts ("\nPREGUNTA 1º")
+	  @p1.imprimir_pregunta()
+	end
+      end
+      
+      describe "#Mostrar Pregunta 1" do
+	it "Se muestra el enunciado correctamente" do
+	  @p1.imprimir_enunciado()
+	end
+      end
+      
+      describe "#Mostrar Respuestas 1" do
+	it "Se muestran todas las respuestas correctamente" do
+	  @p1.imprimir_respuestas()
+	end
+      end
+      
+      describe "#Mostrar Respuestas 1" do
+	it "Se muestran únicamente las respuestas correctas" do
+	  @p1.imprimir_respuestas_correctas()
+	end
+      end
+      
+      #Segunda Pregunta
+      describe "#Mostrar Pregunta 2" do
+	it "Se muestra la pregunta correctamente" do
+	  puts ("\nPREGUNTA 2º")
+	  @p2.imprimir_pregunta()
+	end
+      end
+      
+      describe "#Mostrar Pregunta 2" do
+	it "Se muestra el enunciado correctamente" do
+	  @p2.imprimir_enunciado()
+	end
+      end
+      
+      describe "#Mostrar Respuestas 2" do
+	it "Se muestran todas las respuestas correctamente" do
+	  @p2.imprimir_respuestas()
+	end
+      end
+      
+      describe "#Mostrar Respuestas 2" do
+	it "Se muestran únicamente las respuestas correctas" do
+	  @p2.imprimir_respuestas_correctas()
+	end
+      end
+      
+      #Tercera Pregunta
+      describe "#Mostrar Pregunta 3" do
+	it "Se muestra la pregunta correctamente" do
+	  puts ("\nPREGUNTA 3º")
+	  @p3.imprimir_pregunta()
+	end
+      end
+      
+      describe "#Mostrar Pregunta 3" do
+	it "Se muestra el enunciado correctamente" do
+	  @p3.imprimir_enunciado()
+	end
+      end
+      
+      describe "#Mostrar Respuestas 3" do
+	it "Se muestran todas las respuestas correctamente" do
+	  @p3.imprimir_respuestas()
+	end
+      end
+      
+      describe "#Mostrar Respuestas 3" do
+	it "Se muestran únicamente las respuestas correctas" do
+	  @p3.imprimir_respuestas_correctas()
+	end
+      end
+      
+      #Cuarta Pregunta
+      describe "#Mostrar Pregunta 4" do
+	it "Se muestra la pregunta correctamente" do
+	  puts ("\nPREGUNTA 4º")
+	  @p4.imprimir_pregunta()
+	end
+      end
+      
+      describe "#Mostrar Pregunta 4" do
+	it "Se muestra el enunciado correctamente" do
+	  @p4.imprimir_enunciado()
+	end
+      end
+      
+      describe "#Mostrar Respuestas 4" do
+	it "Se muestran todas las respuestas correctamente" do
+	  @p4.imprimir_respuestas()
+	end
+      end
+      
+      describe "#Mostrar Respuestas 4" do
+	it "Se muestran únicamente las respuestas correctas" do
+	  @p4.imprimir_respuestas_correctas()
+	end
+      end
+      
+      #Quinta Pregunta
+      describe "#Mostrar Pregunta 5" do
+	it "Se muestra la pregunta correctamente" do
+	  puts ("\nPREGUNTA 5º")
+	  @p5.imprimir_pregunta()
+	end
+      end
+      
+      describe "#Mostrar Pregunta 5" do
+	it "Se muestra el enunciado correctamente" do
+	  @p5.imprimir_enunciado()
+	end
+      end
+      
+      describe "#Mostrar Respuestas 5" do
+	it "Se muestran todas las respuestas correctamente" do
+	  @p5.imprimir_respuestas()
+	end
+      end
+      
+      describe "#Mostrar Respuestas 5" do
+	it "Se muestran únicamente las respuestas correctas" do
+	  @p5.imprimir_respuestas_correctas()
+	end
+      end
+      
     end
   end
-  
 end

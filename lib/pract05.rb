@@ -20,12 +20,31 @@ module Pract05
 	options = options.shuffle
 	puts options
     end
+    
+    def imprimir_enunciado()
+	puts "\nPregunta de examen"
+        puts @texto
+    end
+    
+    def imprimir_respuestas()
+	puts "\nRespuestas:"
+	options = [@correcta] + @distraccion
+        puts options
+    end
+    
+    def imprimir_respuestas_correctas()
+	puts "\nRespuestas correctas:"
+	options = [@correcta]
+        puts options
+    end
+    
     def to_array()
         options = [@texto, @correcta] + @distraccion
 	options.each do |respuesta|
 	puts "#{respuesta}"
       end
     end
+    
     def to_s()
         options2 = [@texto, @correcta] + @distraccion
 	options = ""
