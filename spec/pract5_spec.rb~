@@ -59,13 +59,13 @@ module Pract05
       end
       
       it 'Extraer elementos de la lista' do
-	@n1 = Nodo.new(2, nil)
-	@lista1 = Pract05::ListaEnlazada.new(@n1)
+#	@n1 = Nodo.new(2, nil)
+#	@lista1 = Pract05::ListaEnlazada.new(@n1)
 	@lista1.pop.should eq(2)
       end
       
       it 'Comprobación de extracción cuando la lista está vacía' do
-	@lista.pop.should eq (2)
+	@lista.pop
 	@lista.pop
 	@lista.pop
 	@lista.pop
