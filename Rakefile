@@ -9,9 +9,10 @@ task :default => :spec
 #task :default => :spec
 desc "Ejecutar las espectativas de la clase Pregunta"
 task :spec do
-sh "rspec -I. spec/pract5_spec.rb"
+sh "rspec -I. spec/pract05_spec.rb"
 end
 desc "Ejecutar con documentacion"
 task :doc do
-sh "rspec -I. spec/pract5_spec.rb --format documentation"
+sh "rspec -I. spec/pract05_spec.rb --format documentation"
 end
+

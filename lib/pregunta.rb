@@ -20,4 +20,4 @@ module Pract05
     
     
   end
-end
+end 

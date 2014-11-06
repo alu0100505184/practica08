@@ -4,7 +4,7 @@ require "pregunta"
 require "verdaderofalso"
 require "pract05/ListaEnlazada"
 
-module Pract05
+module Pract05          
   # Your code goes here...
   class Pregunta<PreguntaGlobal
     attr_accessor :enunciado, :correcta, :distraccion
@@ -14,7 +14,6 @@ module Pract05
       super(enunciado)
       @correcta, @distraccion=correcta, distraccion
     end
-    
     #Preguntas con respuestas aleatorias
     def imprimir_pregunta()
 	puts "Pregunta de examen"
