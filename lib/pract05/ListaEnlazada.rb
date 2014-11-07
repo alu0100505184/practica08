@@ -4,7 +4,7 @@ module Pract05
   class ListaEnlazada
     attr_accessor :top, :tail
     
-    def initialize (nodes)
+    def initialize (nodes) 
 		@top = Nodo.new(nodes[0],nil,nil)
 		@tail = Nodo.new(nodes[1],nil,@top)
 		@top.next = @tail

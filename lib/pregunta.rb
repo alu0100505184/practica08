@@ -7,11 +7,11 @@ module Pract05
     
     def initialize(enunciado)
          @enunciado=enunciado
-    end
+    end 
     
      def imprimir_enunciado()
 	puts "\nPregunta de examen"
-        puts @enunciado
+        puts @enunciado  
     end
     
     def to_s()

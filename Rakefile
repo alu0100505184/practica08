@@ -9,7 +9,11 @@ task :default => :spec
 #task :default => :spec
 desc "Ejecutar las espectativas de la clase Pregunta"
 task :spec do
-sh "rspec -I. spec/pract05_spec.rb"
+  sh "rspec -I. spec/pract05_spec.rb"
+  sh "rspec -I. spec/pregunta_spec.rb"
+  sh "rspec -I. spec/verdaderofalso_spec.rb"
+  sh "rspec -I. spec/ListaEnlazada_spec.rb"
+  sh "rspec -I. spec/Nodo_spec.rb"
 end
 desc "Ejecutar con documentacion"
 task :doc do
