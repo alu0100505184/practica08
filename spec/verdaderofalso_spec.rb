@@ -18,6 +18,12 @@ module Pract05
       it 'Comprobando la clase verdadero falso' do
 	@v.imprimir_respuestas.should == "Verdadero \nFalso \n"
       end
+      it 'Comprobando que la clase verdadero y falso ha heredado de PreguntaGlobal' do
+	   VerdaderoFalso.ancestors.include?(PreguntaGlobal) == true
+      end
+      it 'Comprobando que la clase verdadero y falso no es una PreguntaGlobal' do
+	   VerdaderoFalso.is_a?(PreguntaGlobal) == false
+      end
     end
    end
-end
+end 

@@ -4,7 +4,7 @@ require "pregunta"
 require "verdaderofalso"
 require "pract05/ListaEnlazada"
 
-module Pract05            
+module Pract05             
   # Your code goes here...
   class PreguntaSimple<PreguntaGlobal 
     attr_accessor :enunciado, :correcta, :distraccion

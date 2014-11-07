@@ -15,17 +15,6 @@ module Pract05
 	@lista.pop.should eq(1)
       end
       
-      it 'Comprobación de extracción cuando la lista está vacía' do
-	@lista.pop
-	@lista.pop
-	@lista.pop
-	@lista.pop
-	@lista.pop
-	@lista.pop
-	@lista.pop
-	@lista.pop
-      end
-      
       it 'Comprobando la clase ListaEnlazada. Insertando elemento' do
 	@lista.push(8).should eq(true)
       end
@@ -44,7 +33,8 @@ module Pract05
   #Test lista enlazada práctica 7
     describe "ListaEnlazada practica 7" do
    before :each do
-      @lista = ListaEnlazada.new([2,1,9])
+      @v = VerdaderoFalso.new("Es apropiado que una clase Tablero herede de una clase Juego.", "verdadero")
+      @lista = ListaEnlazada.new([2,1,9,@v])
     end
       it 'Comprobando la clase ListaEnlazada' do
 	expect(Pract05::ListaEnlazada).to respond_to(:new)

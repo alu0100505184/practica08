@@ -14,9 +14,6 @@ module Pract05
 	  @p1.distraccion.should == [7,2,3]
 	  #@p1.enunciado.should eq("2+2")
 	end
-	it "tenemos una respuesta correcta" do
-	  expect(@p1.correcta).should == 6
-	end
 	it "Deben existir tres componentes" do
 	  expect{Pract05::PreguntaSimple.new(:enunciado =>'5*8 = ?')}.to raise_error(ArgumentError)
 	end
@@ -38,6 +35,7 @@ module Pract05
 	@p3 = Pract05::PreguntaSimple.new('Cuál es la salida del siguiente código Ruby?\nclass Array\n  def say_hi\n    "HEY!"\n  end\nend\n\np [1, "bob"].say_hi', "HEY!", ["1", "bob", "Ninguna de las anteriores"]);
 	@p4 = Pract05::PreguntaSimple.new("¿Cuál es el tipo del objeto en el siguiente código en Ruby?\nclass Objeto\nend", "Ninguna de las anteriores", ["Una instancia de la clase", "Una constante", "Un objeto"]);
 	@p5 = Pract05::PreguntaSimple.new("Es apropiado que una clase Tablero herede de una clase Juego", "Cierto", ["Falso"]);
+      @lista = ListaEnlazada.new([@p1,@p2,@p3,@p4,@p5])
       end
       
       #Primera pregunta
@@ -170,6 +168,12 @@ module Pract05
 	end
       end
       
+      it 'Comprobando que la clase pregunta simple ha heredado de PreguntaGlobal' do
+	   PreguntaSimple.ancestors.include?(PreguntaGlobal) == true
+      end
+      it 'Comprobando que la clase pregunta simple no es una PreguntaGlobal' do
+	   PreguntaSimple.is_a?(PreguntaGlobal) == false
+      end
     end
   end
 
