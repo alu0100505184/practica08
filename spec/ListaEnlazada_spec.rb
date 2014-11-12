@@ -62,5 +62,30 @@ module Pract05
       it "Consulta de cabeza " do
 	@lista.top.value.should eq(2)
       end 
-   end
+  
+    end
+   
+    describe "ListaEnlazada practica 7" do
+   before :each do
+      @v = VerdaderoFalso.new("Es apropiado que una clase Tablero herede de una clase Juego.", "verdadero")
+      @lista = ListaEnlazada.new([3,1,5, @v])
+    end
+    context "Test de clase ListaEnlazada. Práctica 08" do
+	it 'Comprobando el enumerable de la lista enlazada' do
+	  @lista.each { |x| print x.value, "\n"}
+	end
+	it 'Comprobando el enumerable de la lista enlazada' do
+	  (0..(@lista.size-1)).each { |i| puts "a[#{i}] = '#{@lista[i].value}'"}
+	end
+	
+	it 'Comprobando el enumerable de la lista enlazada' do
+	  @lista1 = @lista
+	  (0..(@lista.size-1)).each { 
+	    |i| puts "a[#{i}] = '#{
+				    expect(@lista[i].value == @lista1[i].value).to eq(true)}'"}
+	end
+      end
+      
+       end
+   
 end
