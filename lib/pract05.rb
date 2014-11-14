@@ -1,7 +1,7 @@
 require "pract05/version"
 require "pract05/Nodo"
-require "pregunta"
-require "verdaderofalso"
+require "pract05/pregunta"
+require "pract05/verdaderofalso"
 require "pract05/ListaEnlazada"
 
 module Pract05             

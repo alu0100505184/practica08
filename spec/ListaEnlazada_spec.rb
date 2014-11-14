@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'pract05'
 module Pract05
    describe "ListaEnlazada practica 6" do
@@ -65,7 +66,7 @@ module Pract05
   
     end
    
-    describe "ListaEnlazada practica 7" do
+    describe "ListaEnlazada practica 8" do
    before :each do
       @v = VerdaderoFalso.new("Es apropiado que una clase Tablero herede de una clase Juego.", "verdadero")
       @lista = ListaEnlazada.new([3,1,5, @v])
@@ -75,14 +76,31 @@ module Pract05
 	  @lista.each { |x| print x.value, "\n"}
 	end
 	it 'Comprobando el enumerable de la lista enlazada' do
-	  (0..(@lista.size-1)).each { |i| puts "a[#{i}] = '#{@lista[i].value}'"}
+	  (0..(@lista.size-1)).each { |i| puts "l[#{i}] = '#{@lista[i].value}'"}
 	end
 	
 	it 'Comprobando el enumerable de la lista enlazada' do
 	  @lista1 = @lista
 	  (0..(@lista.size-1)).each { 
-	    |i| puts "a[#{i}] = '#{
-				    expect(@lista[i].value == @lista1[i].value).to eq(true)}'"}
+	    |i| puts "l[#{i}] = '#{
+				    expect(@lista[i] == @lista1[i]).to eq(true)}'"}
+	end
+	
+	it 'Comprobando el enumerable de la lista enlazada' do
+	  expect(@lista.count == @lista.size).to eq(true)
+	  expect(@lista.count != @lista.size).to eq(false)
+	end
+    it 'Comprobando el enumerable de la lista enlazada' do
+        puts "min:"
+        @lista2 = ListaEnlazada.new(["dfgsfgsfgsfgsfgsfgsfgsf", "jjjjjjjjjjjjjjjjj","adadadfadfaadf aaaaaaa","adf"])
+	  expect(((@lista2.min_by{|x| x.value.length }).value) == "adf").to eq(true)
+	  expect(((@lista2.min_by{|x| x.value.length }).value) == "fff").to eq(false)
+	end
+	it 'Comprobando el enumerable de la lista enlazada' do
+        puts "min:"
+        @lista2 = ListaEnlazada.new(["dfgsff", "jjjjjjjjjjjjjjjjj","dfgsfgsfgsfgsfgsfgsfgsf","adf"])
+	  expect(((@lista2.max_by{|x| x.value.length }).value) == "dfgsfgsfgsfgsfgsfgsfgsf").to eq(true)
+	  expect(((@lista2.max_by{|x| x.value.length }).value) == "fff").to eq(false)
 	end
       end
       
