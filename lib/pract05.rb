@@ -16,7 +16,6 @@ module Pract05
     end
     #Preguntas con respuestas aleatorias 
     def imprimir_pregunta()
-	puts "Pregunta de examen"
         puts @enunciado
 	options = [@correcta] + @distraccion
 	options = options.shuffle

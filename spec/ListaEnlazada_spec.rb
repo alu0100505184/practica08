@@ -72,6 +72,7 @@ module Pract05
       @lista = ListaEnlazada.new([3,1,5, @v])
     end
     context "Test de clase ListaEnlazada. Práctica 08" do
+      
 	it 'Comprobando el enumerable de la lista enlazada' do
 	  @lista.each { |x| print x.value, "\n"}
 	end

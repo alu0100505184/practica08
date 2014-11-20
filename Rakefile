@@ -26,4 +26,9 @@ task :verd do
   sh "rspec -I. spec/verdaderofalso_spec.rb"
 end
 
+desc "Ejecutar las espectativas de examen_spec"
+task :exmn do
+  sh "rspec -I. spec/examen_spec.rb"
+end
+
 
