@@ -4,23 +4,50 @@ require 'pract05/examen.rb'
 require 'pract05/interfaz.rb'
 module Pract05
    describe "Clase exmn" do
-    before :each do
-	@v = VerdaderoFalso.new("Esto es ruby?", "verdadero")
-	@vyuh = VerdaderoFalso.new("A?", "verdadero")
-	@p5 = Pract05::PreguntaSimple.new("Es apropiado que una clase Tablero herede de una clase Juego", "Si coño", ["Falso" + "No"]);
-	@lista = ListaEnlazada.new([@p5, @v,@vyuh,@p5])
-	@titulo = "Examen de LPP"
-	@examen = Pract05::Examen.new(@titulo, @lista)
-	@interfaz = Pract05::Interfaz.new(@examen)
-	@preg_actual = -1
-	@npreguntas = 4
+      before :each do
+	  @p1 = VerdaderoFalso.new("¿Es apropiado que una clase Tablero herede de una clase Juego?", "verdadero")
+	  @p2 = VerdaderoFalso.new("A?", "verdadero")
+	  @p3 = PreguntaSimple.new("¿Cuanto es 2+2?", "4", ["2"+"3"+"5"]);
+	  @p4 = PreguntaSimple.new("¿Cual es el valor de 6*6?", "36", ["25"+"35"+"55"]);
+	  @lista = ListaEnlazada.new([@p1, @p2,@p3,@p4])
+	  @lista_ordenada = ListaEnlazada.new([@p2, @p4,@p3,@p1])
+	  @titulo = "Examen de LPP"
+	  @examen = Pract05::Examen.new(@titulo, @lista)
+	  @interfaz = Pract05::Interfaz.new(@examen)
+	  @respuestas = ListaEnlazada.new(["verdadero", "falso", "3", "36"])
+	  @preg_actual = -1
+	  @npreguntas = 3
+	  puts @examen.preguntas.size
       end
-   context "Test de clase Examen" do
-	  it 'Comprobando la clase exmn y respuesta' do
-	    @examen.ordenar_por_enunciado()
-	    @examen.imprimir_examen()
-	    @interfaz.resolver_exmn()
+      context "Test de clase Examen" do
+  
+	  it "Debe existir una clase examen" do
+	    expect(@examen).instance_of?(Examen)
 	  end
-    end
-  end
+	  it "Debe tener un nombre" do
+	    expect(@examen.titulo_examen).to eq("Examen de LPP")
+	  end
+	  it "Hay preguntas insertadas" do
+	    expect(@examen.preguntas.size).to eq(4)
+	  end
+
+	  it "Calcular nota" do
+	    expect(@interfaz.nota(@respuestas)).to eq(5)
+	  end
+
+	  it "Añadir una pregunta al examen" do
+	    @p5 = PreguntaSimple.new("¿Cuanto es 3*3?", "9", ["5"+"10"+"20"])
+	    expect(@examen.preguntas.push([@p4])).to eq(true)
+	    expect(@examen.preguntas.size).to eq(5)
+	    @respuestas.push(["9"]);
+	  end
+	  
+	  it "Imprimir ordenado" do
+	    expect(@examen.comparar_exmn(@lista_ordenada)).to eq(false)
+	    @examen.ordenar_por_enunciado()
+	    expect(@examen.comparar_exmn(@lista_ordenada)).to eq(true)
+	  end
+      end
+   end
 end
+   

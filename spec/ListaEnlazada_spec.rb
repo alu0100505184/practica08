@@ -7,7 +7,7 @@ module Pract05
       @lista = ListaEnlazada.new([2,1,9])
     end
       it 'Comprobando la clase ListaEnlazada' do
-	expect(Pract05::ListaEnlazada).to respond_to(:new)
+	expect(ListaEnlazada).to respond_to(:new)
 	expect(@lista).to respond_to(:top)
       end
       

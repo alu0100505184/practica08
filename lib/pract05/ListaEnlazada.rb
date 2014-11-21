@@ -19,7 +19,7 @@ module Pract05
     
     def push(value)
       if value.is_a? Array then
-	(0..value.length).each do |i|
+	(0..value.length-1).each do |i|
 	  @tail.next = Nodo.new(value[i],nil,@tail)
 	  @tail =  @tail.next
 	end
