@@ -27,3 +27,9 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+6. 
+Travis: [![Build Status](https://travis-ci.org/alu0100505184/practica08.svg?branch=master)](https://travis-ci.org/alu0100505184/practica08)
+
+
+Coverall: [![Coverage Status](https://coveralls.io/repos/alu0100505184/practica08/badge.png)](https://coveralls.io/r/alu0100505184/practica08)
+
