@@ -14,6 +14,7 @@ task :spec do
   sh "rspec -I. spec/verdaderofalso_spec.rb"
   sh "rspec -I. spec/ListaEnlazada_spec.rb"
   sh "rspec -I. spec/Nodo_spec.rb"
+  sh "rspec -I. spec/examen_spec.rb"
 end
 
 desc "Ejecutar con documentacion"
