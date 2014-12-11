@@ -14,6 +14,8 @@ task :spec do
   sh "rspec -I. spec/verdaderofalso_spec.rb"
   sh "rspec -I. spec/ListaEnlazada_spec.rb"
   sh "rspec -I. spec/Nodo_spec.rb"
+  sh "rspec -I. spec/examen_spec.rb"
+  sh "rspec -I. spec/quiz_spec.rb"
 end
 
 desc "Ejecutar con documentacion"
@@ -24,6 +26,11 @@ end
 desc "Ejecutar las espectativas de verdaderofalso_spec"
 task :verd do
   sh "rspec -I. spec/verdaderofalso_spec.rb"
+end
+
+desc "Ejecutar las espectativas de examen_spec"
+task :exmn do
+  sh "rspec -I. spec/examen_spec.rb"
 end
 
 

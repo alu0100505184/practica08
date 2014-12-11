@@ -10,7 +10,7 @@ module Pract05
       describe "PreguntaSimple1" do
 	it "tenemos una pregunta" do
 	  @p1.enunciado.should == "Seleccione cuanto vale. 2 + 4"
-	  @p1.correcta.should == 6
+	  expect(@p1.correcta).to eq(6)
 	  @p1.distraccion.should == [7,2,3]
 	  #@p1.enunciado.should eq("2+2")
 	end
