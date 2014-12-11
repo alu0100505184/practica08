@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Pract05::VERSION
   spec.authors       = "Bianney y David"
   spec.email         = "alu0100303184@ull.edu.es"
-  spec.description   = %q{Practica de la Universidad de La Laguna}
-  spec.summary       = %q{Gema para representar la estrusctura de un examen}
+  spec.description   = "Practica de la Universidad de La Laguna"
+  spec.summary       = "Gema para representar la estrusctura de un examen"
   spec.homepage      = ""
   spec.license       = "MIT"
 
