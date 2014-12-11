@@ -6,10 +6,10 @@ require 'pract05/version'
 Gem::Specification.new do |spec|
   spec.name          = "pract05"
   spec.version       = Pract05::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["TODO: Write your email address"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.authors       = ["Bianney y David"]
+  spec.email         = ["alu0100303184@ull.edu.es"]
+  spec.description   = %q{Practica de la Universidad de La Laguna}
+  spec.summary       = %q{Gema para representar la estrusctura de un examen}
   spec.homepage      = ""
   spec.license       = "MIT"
 
