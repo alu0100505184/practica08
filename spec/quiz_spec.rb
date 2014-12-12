@@ -51,6 +51,11 @@ module Pract05
                 expect(@quiz.get_q(1).respuestas[1].right?).to eq(true)
             end
         end
+        context "Test nombre del cuestionario" do
+            it "Respuestas pregunta 1" do
+                expect(@quiz.name).to eq("Lenguajes y Paradigmas de la Programación")
+            end
+        end
     end
 end
   

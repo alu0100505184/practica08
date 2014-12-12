@@ -8,11 +8,7 @@
     "build": {
         "@builder": "auto",
         "@path": "/.c9/builders",
-<<<<<<< HEAD
         "@saveall": "true"
-=======
-        "@saveall": true
->>>>>>> d5b953ba184a5e36fc21cf5d78ff6778518968d6
     },
     "find.nak": {
         "@searchLimit": 100
