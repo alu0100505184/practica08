@@ -3,6 +3,9 @@ require "pract05/Nodo"
 require "pract05/pregunta"
 require "pract05/verdaderofalso"
 require "pract05/ListaEnlazada"
+require "pract05/quiz"
+require "pract05/question"
+require "pract05/answer"
 
 module Pract05             
   # = Practica 10

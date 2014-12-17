@@ -1,16 +1,20 @@
 #encoding: utf-8
 require "pract05/version"
+require "pract05/question"
 
 module Pract05
 
     class Quiz
-        attr_accessor :name, :question
+        RIGHT = :right
+        WRONG = :wrong
+        
+        attr_accessor :name, :questions
     
-        def initialize(name, &block)
+        def initialize(name = "", &block)
             self.name = name
             self.questions = []
             
-            #@contador = 0
+            @cont = 0
             instance_eval &block
         end
         
@@ -24,17 +28,34 @@ EOQUIZ
         
     
         def question (enunciado, respuestas)
-            p = Question.new(enunciado, respuestas)
-            questions << p 
-            puts p if $DEBUG
+            quest = Question.new(enunciado, respuestas)
+            questions << quest 
+            puts quest if $DEBUG
             @cont = 0
         end
      
         def title(title)
             @name = title
         end
+        
+        def wrong
+            @cont += 1
+            [@cont, WRONG]
+        end
+        
+        def right
+            @cont += 1
+            [@cont, RIGHT]
+        end
     
-        def get_p(n)
+         def run
+            cont=0
+            puts self.name+"\n\n"
+            self.questions.each { |quiz| cont += 1 if quiz.answer }
+            puts "#{cont} preguntas correctas, de: #{@questions.size} preguntas."
+        end
+
+        def get_q(n)
             return questions[n]
         
         end
