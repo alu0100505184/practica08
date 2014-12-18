@@ -25,12 +25,15 @@ module Pract05
                 expect(@naranjero).to respond_to(:edad)
                 expect(@naranjero).to respond_to(:altura)
                 expect(@naranjero).to respond_to(:contador)
+                expect(@naranjero).to respond_to(:vive)
+                expect(@naranjero).to respond_to(:naranjas)
             end
             
             it "El naranjero debe contener datos" do
                 expect(@naranjero.edad).to eq(0)
                 expect(@naranjero.altura).to eq(0)
                 expect(@naranjero.contador).to eq(0)
+                expect(@naranjero.vive).to eq(true)
             end
           
             it "Comprobando el sumar año" do
@@ -40,8 +43,15 @@ module Pract05
                 expect(@naranjero.altura.to_i).to eq(1)
             end
             
+            it "Comprobando nº de naranjas que ha dado por año" do
+                @naranjero.uno_mas(3)
+                expect(@naranjero.naranjas[0]).to eq(8)
+                expect(@naranjero.naranjas[1]).to eq(10)
+            end
+            
             it "Comprobando muerte del naranjero" do
-                expect(@naranjero.edad).to eq(2)
+                expect(@naranjero.edad).to eq(5)
+                expect(@naranjero.vive).to eq(true)
                 @naranjero.set_edad(30)
                 expect(@naranjero.edad).to eq(30)
                 expect(@naranjero.vive).to eq(false)

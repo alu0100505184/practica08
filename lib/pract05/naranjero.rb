@@ -25,7 +25,7 @@ module Pract05
             cont = 0
             mutex = Mutex.new
             while j < i
-                if @edad >= 30     #el arbol muere
+                if @edad >= 30
                     @vive = false
                     puts "El árbol ha muerto"
                 else
@@ -72,6 +72,7 @@ module Pract05
                 else
                     puts "El árbol está muerto"
                 end
+                sleep(1)
             end
         end
     end
